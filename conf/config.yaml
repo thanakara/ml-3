@@ -1,0 +1,6 @@
+# defaults:
+
+params:
+  shuffle: True
+  batch_size: 32
+  learning_rate: 3e-4
