@@ -1,5 +1,8 @@
 # defaults:
 
+paths:
+  log: ./runs
+
 params:
   shuffle: True
   batch_size: 32

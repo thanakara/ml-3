@@ -1,13 +1,14 @@
 import hydra
 import logging
 from ml_3.definitions.constans import CONFIG_DIR
-from omegaconf import OmegaConf, DictConfig
+from conf.config import MyConfig
+from omegaconf import OmegaConf
 
 logger = logging.getLogger(__name__)
 cfg_path = str(CONFIG_DIR)
 
 @hydra.main(version_base=None, config_path=cfg_path, config_name="config")
-def main(cfg: DictConfig):
+def main(cfg: MyConfig):
     logging.info("Resolving Hydra Configuration")
     print(OmegaConf.to_yaml(cfg))
 
