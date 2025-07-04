@@ -1,7 +1,6 @@
-# defaults:
-
 paths:
-  log: ./runs
+  log: ./logs
+  run: ./runs
 
 params:
   shuffle: True
