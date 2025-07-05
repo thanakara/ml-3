@@ -11,7 +11,7 @@ import pandas as pd
 class MyCallback(Callback):
 
     def __init__(self) -> None:
-        self.log = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
+        self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
     
     def on_job_start(self,
                      config: DictConfig,
