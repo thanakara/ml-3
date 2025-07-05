@@ -1,0 +1,12 @@
+hydra:
+  output_subdir: null
+  run:
+    dir: experiments/${now:%Y-%B-%D}/${now:%H-%M-%S}
+  callbacks:
+    save_job_info:
+      _target_: ml_3.utils.callbacks.MyCallback
+  
+defaults:
+  - override hydra/job_logging: custom_job
+  
+seed: 42
