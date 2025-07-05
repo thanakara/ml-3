@@ -1,8 +1,12 @@
 defaults:
   - settings
+  - backend: tensorflow
   - _self_
 
-dataset:
-  - mnist
-  - fashion_mnist
-model: model
+device: cpu
+model: neural_net
+dataset: mnist
+epochs: 50
+patience: 3
+batch_size: 32
+layers: 3
