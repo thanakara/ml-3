@@ -1,15 +1,11 @@
 defaults:
   - settings
   - backend: tensorflow
+  - model: conv
+  - dataset: mnist
   - _self_
 
 device: cpu
-model: neural_net
-dataset: mnist
 epochs: 50
 patience: 3
 batch_size: 32
-layers: 
- - [128, relu]
- - [64, relu]
- - [10, softmax]

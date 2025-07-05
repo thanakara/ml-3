@@ -1,0 +1,7 @@
+device: "${oc.select: device, ???}"
+layers:
+  - "${oc.select: dataset.input_dim}" 
+  - [64, 3, 1, "same", "relu"]
+  - [64, 3, 1, "same", "relu"]
+  - [32, 3, 1, "same", "relu"]
+  # - ["${oc.select: dataset.no_target}", "softmax"]

@@ -1,7 +1,6 @@
 # @package: _global_
 
 device: "${oc.select: device, ???}"
-model: "${oc.select: model, ???}"
 batch_size: "${oc.select: batch_size, ???}"
 loss: sparse_categorical_crossentropy
 metrics:
