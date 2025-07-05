@@ -11,7 +11,7 @@ import pandas as pd
 class MyCallback(Callback):
 
     def __init__(self) -> None:
-        self.log = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
+        self.logger = logging.getLogger(f"{__name__}.{self.__class__.__name__}")
     
     def on_job_start(self,
                      config: DictConfig,
@@ -26,12 +26,12 @@ class MyCallback(Callback):
                    job_return: JobReturn,
                    **kwargs
                    ) -> None:
-        
-        output_dir = pathlib.Path(config.hydra.runtime.output_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-        assert output_dir is not None
+        print("\nJob ended")
+        # output_dir = pathlib.Path(config.hydra.runtime.output_dir)
+        # output_dir.mkdir(parents=True, exist_ok=True)
+        # assert output_dir is not None
 
-        history = job_return.return_value
-        history = pd.DataFrame(history.history)
-        history.index = range(1, len(history) + 1)
-        history.to_json(output_dir.joinpath("history.json"), indent=4)
+        # history = job_return.return_value
+        # history = pd.DataFrame(history.history)
+        # history.index = range(1, len(history) + 1)
+        # history.to_json(output_dir.joinpath("history.json"), indent=4)

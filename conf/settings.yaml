@@ -1,7 +1,10 @@
 hydra:
   output_subdir: null
   run:
-    dir: experiments/${now:%Y-%B-%D}/${now:%H-%M-%S}
+    dir: experiments/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: experiments/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}
   callbacks:
     save_job_info:
       _target_: ml_3.utils.callbacks.MyCallback
