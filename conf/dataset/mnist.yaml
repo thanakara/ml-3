@@ -1,0 +1,3 @@
+name: mnist
+input_dim: [28, 28]
+no_target: 10
