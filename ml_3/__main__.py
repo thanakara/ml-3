@@ -7,7 +7,6 @@ from omegaconf import OmegaConf, DictConfig
 from ml_3.model.baseline_factories import MNISTFactory, ModelFactory
 from ml_3.model.train import compile_and_fit
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 logger = logging.getLogger(__name__)
 config_path = str(CONFIG_DIR)
 
