@@ -18,7 +18,7 @@ class MyCallback(Callback):
                      *,
                      task_function: TaskFunction,
                      **kwargs: Any) -> None:
-        print("Job started...\n")
+        pass
 
     def on_job_end(self,
                    config: MyConfig,
@@ -31,5 +31,3 @@ class MyCallback(Callback):
         configuration = job_return.return_value
         configuration = pd.DataFrame(configuration)
         configuration.T.to_json(output_dir.joinpath("conf.json"))
-
-        print("\nJob ended.")

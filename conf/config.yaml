@@ -2,12 +2,7 @@ defaults:
   - settings
   - _self_
 
-
-paths:
-  log: ./logs
-  run: ./runs
-
-params:
-  shuffle: True
-  batch_size: 32
-  learning_rate: 3e-4
+dataset:
+  - mnist
+  - fashion_mnist
+model: model

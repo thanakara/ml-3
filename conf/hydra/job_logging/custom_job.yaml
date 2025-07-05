@@ -3,6 +3,8 @@ version: 1
 formatters:
   simple:
     format: "[%(levelname)s] - %(message)s"
+  custom:
+    class: ml_3.utils.tools.CustomFormatter
 
 handlers:
   console:
@@ -11,8 +13,8 @@ handlers:
     stream: ext://sys.stdout
   file:
     class: logging.FileHandler
-    formatter: simple
     level: INFO
+    formatter: custom
     filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
 
 root:
