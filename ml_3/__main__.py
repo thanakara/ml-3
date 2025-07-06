@@ -1,14 +1,14 @@
 import os
 import hydra
 import logging
-from ml_3.definitions.constans import CONFIG_DIR
+from ml_3.definitions.constants import CONFIG_PATH
 from omegaconf import OmegaConf, DictConfig
 
 # from ml_3.factories.baseline_factories import MNISTFactory, ModelFactory
 from ml_3.model.train import compile_and_fit
 
 logger = logging.getLogger(__name__)
-config_path = str(CONFIG_DIR)
+config_path = str(CONFIG_PATH)
 
 @hydra.main(version_base=None, config_path=config_path, config_name="config")
 def main(config: DictConfig):
