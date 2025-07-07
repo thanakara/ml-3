@@ -3,3 +3,4 @@ experiments/
 outputs/
 multirun/
 **/__pycache__/
+**/.pytest_cache/
