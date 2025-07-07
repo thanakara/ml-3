@@ -15,19 +15,18 @@ config_path = str(CONFIG_PATH)
 def main(config: DictConfig):
 
     logger.info("Resolving Hydra Configuration")
-    cfg = OmegaConf.to_container(config, resolve=True) 
-    logger.info(cfg["model"]["layers"])
-    print()
+    OmegaConf.resolve(config)
+    logger.debug(config.model.layers)
     ds = dataset_factory(
-        name=cfg["dataset"]["name"],
+        name=config.dataset.name,
         test_size=0.2,
-        seed=cfg["seed"]
+        seed=config.seed
     )
     
     valid_ds = ds.valid
-    for img, label in valid_ds.batch(cfg["batch_size"]).take(3):
+    for img, label in valid_ds.batch(config.batch_size).take(3):
         logger.info(img.shape)
-        logger.info(label.numpy())
+        logger.debug(label.numpy())
 
 if __name__ == "__main__":
     main()
