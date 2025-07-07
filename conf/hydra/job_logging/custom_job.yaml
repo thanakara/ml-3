@@ -9,16 +9,17 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
+    level: INFO
     formatter: simple
     stream: ext://sys.stdout
   file:
     class: logging.FileHandler
-    level: INFO
+    level: DEBUG
     formatter: custom
     filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
 
 root:
-  level: INFO
+  level: DEBUG
   handlers: [console, file]
   propagate: yes
 

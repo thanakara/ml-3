@@ -24,8 +24,6 @@ tensorflow-io-gcs-filesystem = "0.31.0"
 tensorflow = "2.14.0"
 pytorch-lightning = ">=2.2.0,<2.3.0"
 
-
-
 [tool.poetry.group.test.dependencies]
 pytest = "^8.4.1"
 
@@ -35,4 +33,3 @@ build-backend = "poetry.core.masonry.api"
 
 [project.scripts]
 run = "ml_3.__main__:main"
-
