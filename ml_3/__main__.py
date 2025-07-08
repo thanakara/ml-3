@@ -13,14 +13,8 @@ config_path = str(CONFIG_PATH)
 
 @hydra.main(version_base=None, config_path=config_path, config_name="config")
 def main(config: DictConfig):
-    # print(OmegaConf.to_yaml(config))
-    """
-    WANT:
-     + Resolve
-     + Use {oc.select}
-     + utils.instansiate()
-     + print summary
-    """
-
+    OmegaConf.resolve(config)
+    print(OmegaConf.to_yaml(config.model))
+    
 if __name__ == "__main__":
     main()

@@ -2,7 +2,7 @@ defaults:
   - settings
   - backend: tensorflow
   - model: linear
-  - dataset: mnist
+  - dataset@_global_: mnist
   - _self_
 
 device: cpu

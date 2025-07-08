@@ -1,9 +1,7 @@
-# @package: _global_
-
 device: "${oc.select: device, ???}"
 
 layers:
 
   - _target_: tensorflow.keras.layers.Reshape
-    target_shape: ["{oc.select: input_shape}", 1]
-    input_shape: "{oc.select: input_shape}"
+    target_shape: ["oc.decode:${oc.select:input_shape}}"", 1]
+    input_shape: ${oc.select: input_shape}
