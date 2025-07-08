@@ -13,20 +13,14 @@ config_path = str(CONFIG_PATH)
 
 @hydra.main(version_base=None, config_path=config_path, config_name="config")
 def main(config: DictConfig):
-
-    logger.info("Resolving Hydra Configuration")
-    OmegaConf.resolve(config)
-    logger.debug(config.model.layers)
-    ds = dataset_factory(
-        name=config.dataset.name,
-        test_size=0.2,
-        seed=config.seed
-    )
-    
-    valid_ds = ds.valid
-    for img, label in valid_ds.batch(config.batch_size).take(3):
-        logger.info(img.shape)
-        logger.debug(label.numpy())
+    # print(OmegaConf.to_yaml(config))
+    """
+    WANT:
+     + Resolve
+     + Use {oc.select}
+     + utils.instansiate()
+     + print summary
+    """
 
 if __name__ == "__main__":
     main()

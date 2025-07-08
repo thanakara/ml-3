@@ -1,7 +1,7 @@
 defaults:
   - settings
   - backend: tensorflow
-  - model: conv
+  - model: linear
   - dataset: mnist
   - _self_
 
