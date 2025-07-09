@@ -1,14 +1,11 @@
 device: "${oc.select: device, ???}"
 
 layers:
-  - _target_: tensorflow.keras.layers.Flatten
-    input_shape: ${oc.select:input_shape}
+    flatten:
+      input_shape: ${oc.select:input_shape}
 
-  - _target_: tensorflow.keras.layers.Dense
-    units: 32
-    activation: relu
-    kernel_initializer: he_normal
-
-  - _target_: tensorflow.keras.layers.Dense
-    units: ${oc.select:no_target}
-    activation: softmax
+    output_layer:
+      _target_: ml_3.model.layers.Dense
+      in_units: ${flatten:${oc.select:input_shape}}
+      out_units: ${oc.select:no_target, ???}
+      activation: softmax

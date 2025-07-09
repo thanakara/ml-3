@@ -1,7 +1,7 @@
 defaults:
   - settings
   - backend: tensorflow
-  - model: linear
+  - model: lenet5
   - dataset@_global_: mnist
   - _self_
 
