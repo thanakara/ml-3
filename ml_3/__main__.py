@@ -5,7 +5,7 @@ import hydra
 import logging
 from ml_3.definitions.constants import CONFIG_PATH
 from omegaconf import OmegaConf, DictConfig
-from ml_3.model.layers import flatten, calc_channels, Dense
+from ml_3.model.layers import flatten, calc_channels
 from ml_3.factories.model import keras_builder
 
 
