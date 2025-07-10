@@ -7,5 +7,5 @@ layers:
     output_layer:
       _target_: ml_3.model.layers.Dense
       in_units: ${flatten:${oc.select:input_shape}}
-      out_units: ${oc.select:no_target, ???}
+      out_units: ${oc.select:no_target}
       activation: softmax

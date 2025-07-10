@@ -1,7 +1,7 @@
 defaults:
   - settings
   - backend: tensorflow
-  - model: lenet5
+  - model: linear
   - dataset@_global_: mnist
   - _self_
 
@@ -9,3 +9,4 @@ device: cpu
 epochs: 50
 patience: 3
 batch_size: 32
+test_size: 0.2

@@ -19,5 +19,5 @@ layers:
     output_layer:
       _target_: ml_3.model.layers.Dense
       in_units: ${..hidden2.out_units}
-      out_units: ${oc.select:no_target, ???}
+      out_units: ${oc.select:no_target}
       activation: softmax

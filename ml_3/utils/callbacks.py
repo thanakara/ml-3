@@ -19,19 +19,21 @@ class MyCallback(Callback):
                      task_function: TaskFunction,
                      **kwargs: Any
                      ) -> None:
-        pass
+        print("-Job start-\n")
 
     def on_job_end(self,
                    config: DictConfig,
                    job_return: JobReturn,
                    **kwargs
                    ) -> None:
-        print("\nJob ended")
-        # output_dir = pathlib.Path(config.hydra.runtime.output_dir)
-        # output_dir.mkdir(parents=True, exist_ok=True)
-        # assert output_dir is not None
+        
+        output_dir = pathlib.Path(config.hydra.runtime.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        assert output_dir is not None
 
-        # history = job_return.return_value
-        # history = pd.DataFrame(history.history)
-        # history.index = range(1, len(history) + 1)
-        # history.to_json(output_dir.joinpath("history.json"), indent=4)
+        history = job_return.return_value
+        history = pd.DataFrame(history.history)
+        history.index = range(1, len(history) + 1)
+        history.to_json(output_dir.joinpath("history.json"), indent=4)
+
+        print("\n-Job end-")

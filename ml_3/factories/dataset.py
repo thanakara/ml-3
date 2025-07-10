@@ -37,8 +37,8 @@ def get_gs_dataset(
     return Dataset(
         train=tf.data.Dataset.from_tensor_slices((X_train, y_train)),
         valid=tf.data.Dataset.from_tensor_slices((X_valid, y_valid)),
-        test=tf.data.Dataset.from_tensor_slices((X_test, y_test)),   
-    )
+        test=tf.data.Dataset.from_tensor_slices((X_test,y_test))
+        )
 
 
 def dataset_factory(name: str, test_size: int | float, seed: int, scale: bool=True) -> Dataset:

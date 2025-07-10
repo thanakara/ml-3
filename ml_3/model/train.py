@@ -1,10 +1,8 @@
-import os
 import tensorflow as tf
 import logging
 from hydra.utils import instantiate
 from datetime import datetime
 
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 logger = logging.getLogger(__name__)
 
 class CustomCallback(tf.keras.callbacks.Callback):
@@ -37,7 +35,7 @@ def compile_and_fit(
         valid_ds: tf.data.Dataset,
         backend: dict
         ) -> tf.keras.callbacks.History:
-    logger.info(f"Training {backend['model']} on {backend['device']}")
+    logger.info(f"Training on {backend['device'].upper()}")
 
     early_stopping_cb = tf.keras.callbacks.EarlyStopping(
         patience=backend["patience"],
