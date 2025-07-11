@@ -1,11 +1,16 @@
-device: "${oc.select: device, ???}"
+device: ${oc.select:device, ???}
 
 layers:
     flatten:
-      input_shape: ${oc.select:input_shape}
+      input_shape: ${dataset.input_shape}
+
+    # flatten:
+    #   cls: ${backend.flatten_cls}
+    #   args:
+    #     input_shape: ${oc.select:input_shape}
 
     output_layer:
       _target_: ml_3.model.layers.Dense
-      in_units: ${flatten:${oc.select:input_shape}}
-      out_units: ${oc.select:no_target}
+      in_units: ${flatten:${dataset.input_shape}}
+      out_units: ${dataset.no_target}
       activation: softmax

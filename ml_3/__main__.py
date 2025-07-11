@@ -21,7 +21,7 @@ config_path = str(CONFIG_PATH)
 @hydra.main(version_base=None, config_path=config_path, config_name="config")
 def main(config: DictConfig):
     Dataset = dataset_factory(
-        name=config.name,
+        name=config.dataset.name,
         test_size=config.test_size,
         seed=config.seed
     )

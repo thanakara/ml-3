@@ -1,12 +1,12 @@
-device: "${oc.select: device, ???}"
+device: ${oc.select:device, ???}
 
 layers:
     flatten:
-      input_shape: ${oc.select:input_shape}
+      input_shape: ${dataset.input_shape}
 
     hidden1:
       _target_: ml_3.model.layers.Dense
-      in_units: ${flatten:${oc.select:input_shape}}
+      in_units: ${flatten:${dataset.input_shape}}
       out_units: 64
       activation: relu
 
@@ -19,5 +19,5 @@ layers:
     output_layer:
       _target_: ml_3.model.layers.Dense
       in_units: ${..hidden2.out_units}
-      out_units: ${oc.select:no_target}
+      out_units: ${dataset.no_target}
       activation: softmax

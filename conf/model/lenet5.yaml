@@ -1,4 +1,4 @@
-device: "${oc.select: device, ???}"
+device: ${oc.select:device, ???}
 
 layers:
   conv1:
@@ -8,7 +8,7 @@ layers:
     strides: 1
     padding: valid
     activation: tanh
-    input_shape: ${oc.select:input_shape}
+    input_shape: ${dataset.input_shape}
 
   conv2:
     _target_: ml_3.model.layers.Conv2D
@@ -42,7 +42,7 @@ layers:
 
   fc1:
     _target_: ml_3.model.layers.Dense
-    in_units: ${flatten:${oc.select:..flatten.input_shape}}
+    in_units: ${flatten:${..flatten.input_shape}}
     out_units: 120
     activation: tanh
 
@@ -55,5 +55,5 @@ layers:
   output_layer:
     _target_: ml_3.model.layers.Dense
     in_units: ${..fc2.out_units}
-    out_units: ${oc.select:no_target}
+    out_units: ${dataset.no_target}
     activation: softmax
