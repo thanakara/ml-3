@@ -1,15 +1,14 @@
 device: ${oc.select:device, ???}
 
 layers:
-    flatten:
-      input_shape: ${dataset.input_shape}
+  flatten:
+    cls: ${backend.flatten}
+    args:
+    
 
-    # flatten:
-    #   cls: ${backend.flatten_cls}
-    #   args:
-    #     input_shape: ${oc.select:input_shape}
-
-    output_layer:
+  output_layer:
+    cls: ${backend.dense}
+    args:
       _target_: ml_3.model.layers.Dense
       in_units: ${flatten:${dataset.input_shape}}
       out_units: ${dataset.no_target}

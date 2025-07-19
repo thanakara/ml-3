@@ -1,6 +1,6 @@
 defaults:
   - settings
-  - backend: tensorflow
+  - backend: keras
   - model: linear
   - dataset: mnist
   - _self_

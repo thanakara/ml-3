@@ -10,4 +10,7 @@ epochs: ${epochs}
 patience: ${patience}
 
 
-# flatten_cls: tensorflow.keras.layers.Flatten
+builder: 
+  _target_: ml_3.factories.model.KerasBuilder
+flatten: tensorflow.keras.layers.Flatten
+dense: tensorflow.keras.layers.Dense
