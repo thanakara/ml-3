@@ -15,10 +15,12 @@ class Builder(ABC):
 
 
 class TorchBuilder(Builder):
-    def __init__(self):
-        pass
+    def __init__(self, config) -> None:
+        self.config = config
+        
 
-    def build(self, layers) -> nn.Module:
+    def build(self) -> nn.Module:
+        layers = self.config.model.layers
         model = torch.nn.Sequential()
 
         for name, layer in layers.items():
@@ -46,7 +48,11 @@ class TorchBuilder(Builder):
 
 
 class KerasBuilder(Builder):
-    def build(self, layers):
+    def __init__(self, config) -> None:
+        self.config = config
+
+    def build(self):
+        layers = self.config.model.layers
         model = keras.Sequential()
 
         for _, layer in layers.items():
@@ -70,3 +76,9 @@ class KerasBuilder(Builder):
             "kernel_constraint": args.kernel_constraint,
             "bias_constraint": args.bias_constraint,
         }
+    
+    def load_data(self):
+        dataset_factory = call(self.config.backend.data_factory)
+        tf_schema = dataset_factory.load_and_preprocess_data(self.config)
+
+        return tf_schema

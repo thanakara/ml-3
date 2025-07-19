@@ -13,6 +13,6 @@ patience: ${patience}
 builder: 
   _target_: ml_3.factories.model.KerasBuilder
 data_factory:
-  _target_: ml_3.factories.ds_fac.KerasDataFactory
+  _target_: ml_3.factories.dataset.KerasDataFactory
 flatten: tensorflow.keras.layers.Flatten
 dense: tensorflow.keras.layers.Dense

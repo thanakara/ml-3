@@ -18,9 +18,9 @@ config_path = str(CONFIG_PATH)
 def main(config: DictConfig):
     OmegaConf.resolve(config)
 
-    ds_factory = hydra.utils.call(config.backend.data_factory)
-    dataset = ds_factory.load_and_preprocess_data(config)
-    for X, y in dataset.valid.batch(config.batch_size).take(1):
+    builder = hydra.utils.call(config.backend.builder, config)
+    valid_ds = builder.load_data().valid
+    for X, y in valid_ds.batch(config.batch_size).take(1):
         print(X.shape)
         print(y)
 
