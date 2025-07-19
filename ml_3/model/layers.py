@@ -37,10 +37,12 @@ class Conv2D:
     bias_constraint: str | None=None
 
 
-def flatten(shape: list[int]) -> int:
+def get_out_units(shape: list[int]) -> int:
     num_input_fmaps = 1
+
     for s in shape:
         num_input_fmaps *= s
+        
     return num_input_fmaps
 
 def calc_channels(*args):

@@ -10,6 +10,6 @@ layers:
     cls: ${backend.dense}
     args:
       _target_: ml_3.model.layers.Dense
-      in_units: ${flatten:${dataset.input_shape}}
+      in_units: ${get_out_units:${dataset.input_shape}}
       out_units: ${dataset.no_target}
       activation: softmax
